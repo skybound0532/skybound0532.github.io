@@ -159,8 +159,8 @@ const pastProjects: Project[] = [
         The backend used OAuth2 with the school's Google Workspace and the entire system was deployed on a standalone Raspberry Pi with the client and admin frontend accessed through the school network.
       </>
     ),
-  image: "/css.JPG",
-    aspectRatio: "16 / 9",
+  image: "/css.png",
+    imageHeight: "16 / 9",
     tags: ["React", "OAuth2", "Raspberry Pi OS", "MySQL"],
   },
 ];
