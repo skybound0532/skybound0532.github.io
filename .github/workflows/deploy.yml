@@ -43,6 +43,8 @@ jobs:
             cp CNAME out/CNAME
           elif [ -f .github/CNAME ]; then
             cp .github/CNAME out/CNAME
+          elif [ -f .github/workflows/CNAME ]; then
+            cp .github/workflows/CNAME out/CNAME
           fi
 
       - name: Configure Pages

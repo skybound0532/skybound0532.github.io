@@ -101,7 +101,7 @@ const pastProjects: Project[] = [
         Unfortunately, I don't have any photos of BOB in the water. Shown here are two iterations of TINA.
       </>
     ),
-    images: ["/tina3.jpg", "/tina2.png"],
+  images: ["/tina3.JPG", "/tina2.png"],
     imageHeight: "500px",
     tags: ["Autodesk Fusion", "Digi XBee", "Water Ingress Protection", "Hardware Integration", "3D Printing"],
   },
@@ -128,7 +128,7 @@ const pastProjects: Project[] = [
         I've considered upgrading it even more with a 4040 frame and Monolith gantry, but I think I'll put my resources towards the brand new auto-bed clearing design I'm working on instead.
       </>
     ),
-    image: "/miku1.jpg",
+  image: "/miku1.JPG",
     tags: ["Mainsail", "Klipper", "Electronics Assembly", "Wiring Harnesses", "3D Printing"],
   },
   {
@@ -140,7 +140,7 @@ const pastProjects: Project[] = [
     date: "2024",
     description:
       "Designed for Science Olympiad's Robot Tour event. It runs on an Arduino-style RP2040 board with cheap ultrasonic sensors, an IMU, and wheel encoders for localization and dead reckoning. I briefly experimented with optical flow sensors as well. The 3D printed chassis was designed with three goals in mind: easy access to all electronics, compact size to avoid hitting walls, and modularity to easily iterate on the hardware. It won 1st at the 2024 COD Regionals and 4th place at the ISO State competition.",
-    image: "/charlotte.jpg",
+  image: "/charlotte.JPG",
     imageHeight: "640px",
     tags: ["C++", "Arduino", "Autodesk Inventor", "Breadboarding", "3D Printing"],
   },
@@ -158,7 +158,7 @@ const pastProjects: Project[] = [
         The backend used OAuth2 with the school's Google Workspace and the entire system was deployed on a standalone Raspberry Pi with the client and admin frontend accessed through the school network.
       </>
     ),
-    image: "/css.jpg",
+  image: "/css.JPG",
     imageHeight: "640px",
     tags: ["React", "OAuth2", "Raspberry Pi OS", "MySQL"],
   },
