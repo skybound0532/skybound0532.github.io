@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
+import AspectImage from "@/components/ui/aspect-image";
 
 type Project = {
   title: string | React.ReactNode;
@@ -7,7 +7,8 @@ type Project = {
   description: string | React.ReactNode;
   image?: string;
   images?: string[]; // For dual-image layout
-  imageHeight?: string; // Custom height (e.g., "400px", "h-96")
+  imageHeight?: string; // Deprecated in favor of aspect ratio
+  aspectRatio?: string; // CSS aspect-ratio string like "16 / 9" or "4 / 3" or "1 / 1"
   tags?: string[];
 };
 
@@ -17,8 +18,8 @@ const currentProjects: Project[] = [
     date: "Ongoing",
     description:
       "I'm developing the structures for an autonomous test bed vehicle with UAVs@Berkeley. It features a modular carbon fiber airframe that packs down into the size of an airline personal item luggage despite its 1.1m motor-to-motor span. Eventually, it will be capable of target localization, aerial mapping, and payload pickup and delivery. It will also be the first vehicle to use our new in-house flight controller and custom battery packs.",
-    image: "/quad.png",
-    imageHeight: "300px",
+  image: "/quad.png",
+  aspectRatio: "16 / 9",
     tags: ["Autodesk Fusion", "Ansys Structures", "Composites", "Waterjet", "3D Printing"],
   },
   {
@@ -102,7 +103,7 @@ const pastProjects: Project[] = [
       </>
     ),
   images: ["/tina3.JPG", "/tina2.png"],
-    imageHeight: "500px",
+    aspectRatio: "4 / 3",
     tags: ["Autodesk Fusion", "Digi XBee", "Water Ingress Protection", "Hardware Integration", "3D Printing"],
   },
   {
@@ -141,7 +142,7 @@ const pastProjects: Project[] = [
     description:
       "Designed for Science Olympiad's Robot Tour event. It runs on an Arduino-style RP2040 board with cheap ultrasonic sensors, an IMU, and wheel encoders for localization and dead reckoning. I briefly experimented with optical flow sensors as well. The 3D printed chassis was designed with three goals in mind: easy access to all electronics, compact size to avoid hitting walls, and modularity to easily iterate on the hardware. It won 1st at the 2024 COD Regionals and 4th place at the ISO State competition.",
   image: "/charlotte.JPG",
-    imageHeight: "640px",
+    aspectRatio: "3 / 4",
     tags: ["C++", "Arduino", "Autodesk Inventor", "Breadboarding", "3D Printing"],
   },
   {
@@ -159,7 +160,7 @@ const pastProjects: Project[] = [
       </>
     ),
   image: "/css.JPG",
-    imageHeight: "640px",
+    aspectRatio: "16 / 9",
     tags: ["React", "OAuth2", "Raspberry Pi OS", "MySQL"],
   },
 ];
@@ -234,37 +235,27 @@ function ProjectCard({ project }: { project: Project }) {
 
         {/* dual photo */}
         {isDualImage && project.images && (
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {project.images.map((img, i) => (
-              <div
+              <AspectImage
                 key={i}
-                className="relative w-full rounded-xl overflow-hidden border border-white/20"
-                style={{ height: project.imageHeight || "280px" }}
-              >
-                <Image
-                  src={img}
-                  alt={`${typeof project.title === 'string' ? project.title : 'Project'} - Image ${i + 1}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+                src={img}
+                alt={`${typeof project.title === 'string' ? project.title : 'Project'} - Image ${i + 1}`}
+                ratio={project.aspectRatio || "4 / 3"}
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
             ))}
           </div>
         )}
 
         {/* single photo */}
         {!isDualImage && project.image && (
-          <div 
-            className="relative w-full rounded-xl overflow-hidden border border-white/20"
-            style={{ height: project.imageHeight || "480px" }}
-          >
-            <Image
-              src={project.image}
-              alt={typeof project.title === 'string' ? project.title : 'Project image'}
-              fill
-              className="object-cover"
-            />
-          </div>
+          <AspectImage
+            src={project.image}
+            alt={typeof project.title === 'string' ? project.title : 'Project image'}
+            ratio={project.aspectRatio || "16 / 9"}
+            sizes="(max-width: 768px) 100vw, 768px"
+          />
         )}
 
         {/* description */}

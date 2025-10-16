@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import {
@@ -25,6 +25,12 @@ export const metadata: Metadata = {
   description: "My engineering portfolio, cooking photos, and more.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,11 +42,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-3xl border-b border-white/10" style={{ background: "rgba(255,255,255,0.015)" }}>
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="container mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold gradient-text">
               Eric Gu
             </Link>
-            <NavigationMenu>
+            <NavigationMenu className="hidden sm:block">
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
@@ -65,6 +71,12 @@ export default function RootLayout({
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
+            {/* simple mobile links */}
+            <div className="sm:hidden flex items-center gap-4 text-sm">
+              <Link href="/" className="text-muted-foreground hover:text-primary">Home</Link>
+              <Link href="/projects" className="text-muted-foreground hover:text-primary">Projects</Link>
+              <Link href="/cooking" className="text-muted-foreground hover:text-primary">Cooking</Link>
+            </div>
           </div>
         </nav>
         <main className="pt-20">{children}</main>

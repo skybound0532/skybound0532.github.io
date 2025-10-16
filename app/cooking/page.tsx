@@ -1,4 +1,4 @@
-import Image from "next/image";
+import AspectImage from "@/components/ui/aspect-image";
 
 export default function CookingPage() {
   return (
@@ -13,22 +13,18 @@ export default function CookingPage() {
           <div
             key={index}
             className="relative break-inside-avoid mb-4 group cursor-pointer"
-            style={{ height: photo.height }}
           >
-            <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/20">
-              <Image
-                src={photo.src}
-                alt={photo.caption}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              {/* Hover Caption Overlay */}
+            <AspectImage
+              src={photo.src}
+              alt={photo.caption}
+              ratio={photo.aspectRatio || "4 / 5"}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              imageClassName="transition-transform duration-300 group-hover:scale-105"
+            >
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                <p className="text-white text-center text-lg font-medium">
-                  {photo.caption}
-                </p>
+                <p className="text-white text-center text-lg font-medium">{photo.caption}</p>
               </div>
-            </div>
+            </AspectImage>
           </div>
         ))}
       </div>
@@ -39,113 +35,114 @@ export default function CookingPage() {
 type Photo = {
   src: string;
   caption: string;
-  height: string;
+  height?: string; // deprecated
+  aspectRatio?: string; // e.g., "4 / 5" or "1 / 1"
 };
 
 const photos: Photo[] = [
   {
     src: "/raspmatchamochi.JPG",
     caption: "Raspberry mochi butter cake with matcha glaze",
-    height: "400px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/genericpasta.JPG",
     caption: "Generic chicken stock and tomato sauce pasta",
-    height: "450px",
+    aspectRatio: "3 / 4",
   },
   {
     src: "/ubecoconutmochi.JPG",
     caption: "Ube coconut mochi butter cake. Currently my favorite recipe ever.",
-    height: "400px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/tonkatsu.JPG",
     caption: "Tonkatsu",
-    height: "350px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/millecrepecake.JPG",
     caption: "Matcha mille crepe cake",
-    height: "460px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/ubetart.JPG",
     caption: "Ube tart",
-    height: "420px",
+    aspectRatio: "1 / 1",
   },
   {
     src: "/kfc.JPG",
     caption: "Korean fried chicken with random gochujang sauce",
-    height: "360px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/onigiri.JPG",
     caption: "Tuna mayo and salmon rice onigiri",
-    height: "300px",
+    aspectRatio: "1 / 1",
   },
   {
     src: "/honeygarlicchicken.JPG",
     caption: "Soy honey garlic chicken",
-    height: "360px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/eggtart.JPG",
     caption: "Egg tart croissants",
-    height: "460px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/matchabasquecheesecake.JPG",
     caption: "Matcha basque cheesecake",
-    height: "340px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/marrymechickenpasta.JPG",
     caption: "Marry me chicken pasta",
-    height: "420px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/bobacake.JPG",
     caption: "Brown sugar boba cake",
-    height: "420px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/frenchoniongrilledcheese.JPG",
     caption: "French onion grilled cheese",
-    height: "500px",
+    aspectRatio: "3 / 4",
   },
   {
     src: "/hongshaorou.JPG",
     caption: "Red braised pork belly",
-    height: "400px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/matchatiramisu.JPG",
     caption: "Matcha tiramisu",
-    height: "420px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/blueberrycheesecake.JPG",
     caption: "Blueberry cheesecake",
-    height: "380px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/ubehalayajam.JPG",
     caption: "Ube halaya jam",
-    height: "390px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/tteokbokki.JPG",
     caption: "Tteokbokki",
-    height: "420px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/threelayermatcha.JPG",
     caption: "Three layer matcha cheesecake",
-    height: "390px",
+    aspectRatio: "4 / 5",
   },
   {
     src: "/pulledpork.JPG",
     caption: "Pulled pork",
-    height: "420px",
+    aspectRatio: "4 / 5",
   },
 ];

@@ -10,12 +10,12 @@ export default function Home() {
     <div className="container mx-auto px-4 py-16 max-w-4xl">
       {/* hero */}
       <section
-        className="relative flex gap-8 items-start mb-16 glass-strong rounded-[2rem] p-8 backdrop-blur-3xl"
+        className="relative flex flex-col sm:flex-row gap-6 sm:gap-8 items-start mb-16 glass-strong rounded-[2rem] p-6 sm:p-8 backdrop-blur-3xl"
         style={{ background: "rgba(255,255,255,0.02)" }}
       >
         {/* photo */}
         <div className="relative z-10 flex-shrink-0">
-          <div className="w-32 h-32 relative rounded-full overflow-hidden border-1 border-white/30">
+          <div className="w-28 h-28 sm:w-32 sm:h-32 relative rounded-full overflow-hidden border-1 border-white/30">
             <Image
               src="/pfp2.png"
               alt="Personal photo"
@@ -28,7 +28,7 @@ export default function Home() {
 
         {/* details */}
         <div className="relative z-10 flex-grow">
-          <h1 className="text-4xl font-bold mb-4 gradient-text">Eric Gu</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 gradient-text">Eric Gu</h1>
           
           {/* linkedin and email */}
           <div className="flex gap-4 mb-4">
@@ -56,7 +56,7 @@ export default function Home() {
           </div>
 
           {/* navigation buttons */}
-          <div className="flex gap-4">
+          <div className="flex gap-3 sm:gap-4">
             <Button asChild variant="default" className="bg-primary/20 hover:bg-primary/30 border border-primary/30">
               <Link href="/projects">Projects</Link>
             </Button>
