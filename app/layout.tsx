@@ -85,7 +85,7 @@ export default function RootLayout({
         <footer className="backdrop-blur-3xl border-t border-white/10 mt-16" style={{ background: "rgba(255,255,255,0.015)" }}>
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-center gap-8 text-base text-muted-foreground">
-              <div>© 2025 Eric Gu. Built in Next.js using shadcn/ui</div>
+              <div className="text-center">© 2025 Eric Gu. Built in Next.js using shadcn/ui</div>
             </div>
           </div>
         </footer>
