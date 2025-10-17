@@ -19,7 +19,7 @@ const currentProjects: Project[] = [
     description:
       "I'm developing the structures for an autonomous test bed vehicle with UAVs@Berkeley. It features a modular carbon fiber airframe that packs down into the size of an airline personal item luggage despite its 1.1m motor-to-motor span. Eventually, it will be capable of target localization, aerial mapping, and payload pickup and delivery. It will also be the first vehicle to use our new in-house flight controller and custom battery packs.",
   image: "/quad.png",
-  aspectRatio: "16 / 9",
+  aspectRatio: "2 / 1",
     tags: ["Autodesk Fusion", "Ansys Structures", "Composites", "Waterjet", "3D Printing"],
   },
   {
@@ -103,7 +103,7 @@ const pastProjects: Project[] = [
       </>
     ),
   images: ["/tina3.JPG", "/tina2.png"],
-    aspectRatio: "4 / 3",
+    aspectRatio: "3 / 4",
     tags: ["Autodesk Fusion", "Digi XBee", "Water Ingress Protection", "Hardware Integration", "3D Printing"],
   },
   {
@@ -130,6 +130,7 @@ const pastProjects: Project[] = [
       </>
     ),
   image: "/miku1.JPG",
+  aspectRatio: "4 / 3",
     tags: ["Mainsail", "Klipper", "Electronics Assembly", "Wiring Harnesses", "3D Printing"],
   },
   {
@@ -142,7 +143,7 @@ const pastProjects: Project[] = [
     description:
       "Designed for Science Olympiad's Robot Tour event. It runs on an Arduino-style RP2040 board with cheap ultrasonic sensors, an IMU, and wheel encoders for localization and dead reckoning. I briefly experimented with optical flow sensors as well. The 3D printed chassis was designed with three goals in mind: easy access to all electronics, compact size to avoid hitting walls, and modularity to easily iterate on the hardware. It won 1st at the 2024 COD Regionals and 4th place at the ISO State competition.",
   image: "/charlotte.JPG",
-    aspectRatio: "3 / 4",
+    aspectRatio: "4 / 3",
     tags: ["C++", "Arduino", "Autodesk Inventor", "Breadboarding", "3D Printing"],
   },
   {
@@ -160,7 +161,7 @@ const pastProjects: Project[] = [
       </>
     ),
   image: "/css.png",
-    imageHeight: "16 / 9",
+    aspectRatio: "16 / 10",
     tags: ["React", "OAuth2", "Raspberry Pi OS", "MySQL"],
   },
 ];

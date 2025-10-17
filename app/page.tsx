@@ -10,7 +10,7 @@ export default function Home() {
     <div className="container mx-auto px-4 py-16 max-w-4xl">
       {/* hero */}
       <section
-        className="relative flex flex-col sm:flex-row gap-6 sm:gap-8 items-start mb-16 glass-strong rounded-[2rem] p-6 sm:p-8 backdrop-blur-3xl"
+        className="relative grid grid-cols-[auto,1fr] sm:flex sm:flex-row gap-6 sm:gap-8 items-start mb-16 glass-strong rounded-[2rem] p-6 sm:p-8 backdrop-blur-3xl"
         style={{ background: "rgba(255,255,255,0.02)" }}
       >
         {/* photo */}
@@ -49,7 +49,7 @@ export default function Home() {
           </div>
 
           {/* description */}
-          <div className="text-base text-muted-foreground leading-relaxed mb-6 space-y-1">
+          <div className="hidden sm:block text-base text-muted-foreground leading-relaxed mb-6 space-y-1">
             <p>Mechanical Engineering + Electrical Engineering & Computer Science</p>
             <p><em className="italic">University of California, Berkeley</em>, '28</p>
             <p>I enjoy all things mechatronics, including robots, drones, and 3D printers!</p>
@@ -64,6 +64,13 @@ export default function Home() {
               <Link href="/cooking">Cooking</Link>
             </Button>
           </div>
+        </div>
+
+        {/* description shown below on mobile */}
+        <div className="sm:hidden col-span-2 text-base text-muted-foreground leading-relaxed mt-4 space-y-1">
+          <p>Mechanical Engineering + Electrical Engineering & Computer Science</p>
+          <p><em className="italic">University of California, Berkeley</em>, '28</p>
+          <p>I enjoy all things mechatronics, including robots, drones, and 3D printers!</p>
         </div>
       </section>
 
@@ -87,8 +94,11 @@ export default function Home() {
                 <div>
                   <h3 className="text-2xl font-semibold gradient-text">{exp.title}</h3>
                   <p className="text-lg text-muted-foreground">{exp.role}</p>
+                  {/* date under role on mobile */}
+                  <span className="text-base text-muted-foreground sm:hidden">{exp.date}</span>
                 </div>
-                <span className="text-base text-muted-foreground whitespace-nowrap">
+                {/* right-aligned date on desktop */}
+                <span className="hidden sm:block text-base text-muted-foreground whitespace-nowrap">
                   {exp.date}
                 </span>
               </div>

@@ -1,4 +1,6 @@
+"use client";
 import AspectImage from "@/components/ui/aspect-image";
+import { useState } from "react";
 
 export default function CookingPage() {
   return (
@@ -10,22 +12,7 @@ export default function CookingPage() {
 
       <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
         {photos.map((photo, index) => (
-          <div
-            key={index}
-            className="relative break-inside-avoid mb-4 group cursor-pointer"
-          >
-            <AspectImage
-              src={photo.src}
-              alt={photo.caption}
-              ratio={photo.aspectRatio || "4 / 5"}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              imageClassName="transition-transform duration-300 group-hover:scale-105"
-            >
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                <p className="text-white text-center text-lg font-medium">{photo.caption}</p>
-              </div>
-            </AspectImage>
-          </div>
+          <PhotoTile key={index} photo={photo} />
         ))}
       </div>
     </div>
@@ -146,3 +133,34 @@ const photos: Photo[] = [
     aspectRatio: "4 / 5",
   },
 ];
+
+function PhotoTile({ photo }: { photo: Photo }) {
+  const [revealed, setRevealed] = useState(false);
+  return (
+    <div
+      className="relative break-inside-avoid mb-4 group cursor-pointer select-none"
+      onClick={() => setRevealed((v) => !v)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") setRevealed((v) => !v);
+      }}
+      role="button"
+      tabIndex={0}
+      aria-pressed={revealed}
+      aria-label={`Toggle caption: ${photo.caption}`}
+    >
+      <AspectImage
+        src={photo.src}
+        alt={photo.caption}
+        ratio={photo.aspectRatio || "4 / 5"}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        imageClassName="transition-transform duration-300 group-hover:scale-105"
+      >
+        <div
+          className={`absolute inset-0 bg-black/70 transition-opacity duration-300 flex items-center justify-center p-6 ${revealed ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+        >
+          <p className="text-white text-center text-lg font-medium">{photo.caption}</p>
+        </div>
+      </AspectImage>
+    </div>
+  );
+}
