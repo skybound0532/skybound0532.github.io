@@ -55,8 +55,8 @@ export default function Home() {
             <p>I enjoy all things mechatronics, including robots, drones, and 3D printers!</p>
           </div>
 
-          {/* navigation buttons */}
-          <div className="flex gap-3 sm:gap-4">
+          {/* navigation buttons (desktop) */}
+          <div className="hidden sm:flex gap-3 sm:gap-4">
             <Button asChild variant="default" className="bg-primary/20 hover:bg-primary/30 border border-primary/30">
               <Link href="/projects">Projects</Link>
             </Button>
@@ -71,6 +71,15 @@ export default function Home() {
           <p>Mechanical Engineering + Electrical Engineering & Computer Science</p>
           <p><em className="italic">University of California, Berkeley</em>, '28</p>
           <p>I enjoy all things mechatronics, including robots, drones, and 3D printers!</p>
+          {/* navigation buttons (mobile) */}
+          <div className="mt-3 flex gap-3">
+            <Button asChild variant="default" className="bg-primary/20 hover:bg-primary/30 border border-primary/30">
+              <Link href="/projects">Projects</Link>
+            </Button>
+            <Button asChild variant="outline" className="glass border-white/30 hover:bg-primary/10 hover:text-foreground">
+              <Link href="/cooking">Cooking</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
