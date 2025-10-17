@@ -1,4 +1,4 @@
-# Personal Website
+# tianchenggu.org
 
 Next.js, Tailwind CSS, and shadcn/ui. Mostly meant to be a portfolio.
 
