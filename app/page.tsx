@@ -63,6 +63,9 @@ export default function Home() {
             <Button asChild variant="outline" className="glass border-white/30 hover:bg-primary/10 hover:text-foreground">
               <Link href="/cooking">Cooking</Link>
             </Button>
+            <Button asChild variant="outline" className="glass border-white/30 hover:bg-primary/10 hover:text-foreground">
+              <Link href="/Gu_Eric_Resume_10_17_2025.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume in new tab">Resume</Link>
+            </Button>
           </div>
         </div>
 
@@ -78,6 +81,9 @@ export default function Home() {
             </Button>
             <Button asChild variant="outline" className="glass border-white/30 hover:bg-primary/10 hover:text-foreground">
               <Link href="/cooking">Cooking</Link>
+            </Button>
+            <Button asChild variant="outline" className="glass border-white/30 hover:bg-primary/10 hover:text-foreground">
+              <Link href="/Gu_Eric_Resume_10_17_2025.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open my resume in new tab">Resume</Link>
             </Button>
           </div>
         </div>
