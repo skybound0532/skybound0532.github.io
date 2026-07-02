@@ -1,6 +1,6 @@
 ---
 organization: Theoretical and Applied Fluid Dynamics Laboratory
-role: Undergraduate Researcher
+role: Mechanical Engineering Intern
 date: May 2025 - Aug 2025
 website: https://taflab.berkeley.edu/
 logo: taflablogo.png

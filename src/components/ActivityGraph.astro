@@ -62,7 +62,7 @@ function parseDateToken(rawToken: string): number {
   return Number.NEGATIVE_INFINITY;
 }
 
-function getRecencyScore(dateText: string): number {
+function getStartDateScore(dateText: string): number {
   const normalized = dateText.replace(/\u2013/g, '-');
   const parts = normalized
     .split('-')
@@ -73,15 +73,24 @@ function getRecencyScore(dateText: string): number {
     return Number.NEGATIVE_INFINITY;
   }
 
-  const mostRecentPart = parts[parts.length - 1];
-  const mostRecentScore = parseDateToken(mostRecentPart);
+  const startPart = parts[0];
+  const startScore = parseDateToken(startPart);
 
-  if (mostRecentScore !== Number.NEGATIVE_INFINITY) {
-    return mostRecentScore;
+  if (startScore !== Number.NEGATIVE_INFINITY) {
+    return startScore;
   }
 
-  const fallbackScore = parseDateToken(parts[0]);
-  return fallbackScore;
+  return Number.NEGATIVE_INFINITY;
+}
+
+const MANUAL_PRIORITY_WEIGHTS: Record<string, number> = {
+  'Open Computing Facility': 2,
+  'Unmanned Aerial Vehicles at Berkeley': 2,
+  Supernode: 2,
+};
+
+function getManualPriorityWeight(organization: string): number {
+  return MANUAL_PRIORITY_WEIGHTS[organization] ?? 0;
 }
 
 function getInitials(name: string): string {
@@ -107,8 +116,15 @@ function getSeededUnit(seed: string): number {
 }
 
 const activitiesSorted = [...activities].sort((a, b) => {
-  const scoreA = getRecencyScore(a.data.date);
-  const scoreB = getRecencyScore(b.data.date);
+  const manualA = getManualPriorityWeight(a.data.organization);
+  const manualB = getManualPriorityWeight(b.data.organization);
+
+  if (manualA !== manualB) {
+    return manualB - manualA;
+  }
+
+  const scoreA = getStartDateScore(a.data.date);
+  const scoreB = getStartDateScore(b.data.date);
   return scoreB - scoreA;
 });
 
