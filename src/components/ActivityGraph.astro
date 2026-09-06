@@ -267,25 +267,7 @@ for (const node of nodes) {
 <style>
   .activity-graph-shell {
     position: relative;
-    border-radius: 2rem;
     overflow: visible;
-    padding: 0.5rem;
-  }
-
-  .activity-graph-shell::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    border: 1px solid oklch(28% 0.018 252 / 0.92);
-    background:
-      radial-gradient(circle at 50% 45%, oklch(59% 0.07 246 / 0.2), transparent 56%),
-      radial-gradient(circle at 18% 72%, oklch(56% 0.06 174 / 0.16), transparent 48%),
-      radial-gradient(circle at 84% 78%, oklch(58% 0.068 292 / 0.16), transparent 44%),
-      linear-gradient(145deg, oklch(25% 0.02 246 / 0.7), oklch(17% 0.015 260 / 0.86));
-    backdrop-filter: blur(16px);
-    z-index: 0;
-    pointer-events: none;
   }
 
   .activity-graph {
@@ -430,11 +412,6 @@ for (const node of nodes) {
   }
 
   @media (max-width: 640px) {
-    .activity-graph-shell {
-      padding: 0.35rem;
-      border-radius: 1.4rem;
-    }
-
     .activity-graph {
       min-height: 18.25rem;
     }

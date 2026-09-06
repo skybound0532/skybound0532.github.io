@@ -5,11 +5,17 @@ items:
     alt: leelee
   - image: /blakeh.gif
     link: https://blakehaug.com
-    alt: Blake Haug
+    alt: blakeh
   - image: /rsang-button.png
     link: https://rsang.me
-    alt: Rosarin Sanglimsuwan
+    alt: rsang
+  - image: /jaysa.net.png
+    link: https://jaysa.net
+    alt: jaysa
   - image: /ocf2.png
     link: https://ocf.io
     alt: Open Computing Facility
+  - image: /nixos.png
+    link: https://nixos.org
+    alt: NixOS
 ---
